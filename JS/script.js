@@ -125,10 +125,10 @@ employers_btn.addEventListener('click', () => {
 
 						employers_value.textContent += mainList.employers[i] + ', ';
 
-					} else {
+					} /*else {
 						console.log('Вы ввели неправильное имя');
 						i--;
-				}
+				}*/
 			}
 
 });
