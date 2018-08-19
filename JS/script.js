@@ -8,8 +8,8 @@
 	isOpen = document.getElementsByClassName('isopen-value')[0],
 	goods_item = document.getElementsByClassName('goods-item'),
 	goods_btn = document.getElementsByTagName('button')[1],
-	employers_btn = document.getElementsByTagName('button')[3],
-	budget_btn = document.getElementsByTagName('button')[2],
+	employers_btn = document.getElementsByTagName('button')[2],
+	budget_btn = document.getElementsByTagName('button')[3],
 	choose_item = document.querySelector('.choose-item'),
 	time_value = document.querySelector('.time-value'),
 	count_budget_value = document.querySelector('.count-budget-value'),
@@ -26,9 +26,11 @@ count_budget_value.disabled = true;
 employers_bt.disabled = true;
 budget_btn.disabled = true;*/
 
+var btnDisabled = false;
+
 openShop.addEventListener('click', () => {
 	
-	
+		
 	summMonth = prompt('Ваш бюджет на месяц?', '');
 
 	while (isNaN(summMonth) || summMonth =='' || summMonth == null) {
@@ -44,10 +46,18 @@ openShop.addEventListener('click', () => {
 	nameShop = nameShop.toUpperCase();
 	name_value.textContent = nameShop;
 
-	if (openShop) {
-		goods_btn.disabled = true;
-	}
+	return btnDisabled = true;
 });
+
+console.log(btnDisabled);
+function btnEnabled (btnDisabled) {
+	if (btnDisabled == true) {
+		goods_btn.disabled = false;
+		
+	} 
+	
+}
+btnEnabled(btnDisabled);
 
 goods_btn.addEventListener('click', () => {
 
@@ -148,13 +158,7 @@ discountChek.addEventListener('click', () => {
 	
 });
 
-/*discountChek.addEventListener('click', function getEventType(e) {
 
-    if (!e) e = window.event;
-
-    alert(e.type);
-
-});*/
 
 /*function getEventType(e) {
 
