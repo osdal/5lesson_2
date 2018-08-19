@@ -133,13 +133,37 @@ employers_btn.addEventListener('click', () => {
 
 });
 
+let k = true;
 discountChek.addEventListener('click', () => {
-	if (discountChek) {
+	if  (discountChek && k == true) {
+		k = !k;
+		
 		discount.style.backgroundColor = 'green';
+	} else if (discountChek && k == false) {
+		k = !k;
+		
+		discount.style.backgroundColor = 'red';
 	}
 	
 	
 });
+
+/*discountChek.addEventListener('click', function getEventType(e) {
+
+    if (!e) e = window.event;
+
+    alert(e.type);
+
+});*/
+
+/*function getEventType(e) {
+
+    if (!e) e = window.event;
+
+    alert(e.type);
+
+}*/
+
 
 
 
