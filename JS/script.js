@@ -8,8 +8,8 @@
 	isOpen = document.getElementsByClassName('isopen-value')[0],
 	goods_item = document.getElementsByClassName('goods-item'),
 	goods_btn = document.getElementsByTagName('button')[1],
-	employers_btn = document.getElementsByTagName('button')[2],
-	budget_btn = document.getElementsByTagName('button')[3],
+	employers_btn = document.getElementsByTagName('button')[3],
+	budget_btn = document.getElementsByTagName('button')[2],
 	choose_item = document.querySelector('.choose-item'),
 	time_value = document.querySelector('.time-value'),
 	count_budget_value = document.querySelector('.count-budget-value'),
@@ -22,13 +22,18 @@
 		price = 100;
 
 count_budget_value.disabled = true;
-/*goods_bt.disabled = true;
-employers_bt.disabled = true;
-budget_btn.disabled = true;*/
+goods_btn.disabled = true;
+employers_btn.disabled = true;
+budget_btn.disabled = true;
 
 var btnDisabled = false;
 
+
+
 openShop.addEventListener('click', () => {
+
+	employers_btn.disabled = false;
+	budget_btn.disabled = false;
 	
 		
 	summMonth = prompt('Ваш бюджет на месяц?', '');
@@ -49,20 +54,21 @@ openShop.addEventListener('click', () => {
 	return btnDisabled = true;
 });
 
-console.log(btnDisabled);
-function btnEnabled (btnDisabled) {
-	if (btnDisabled == true) {
+for (let i = 0; i < goods_item.length; i++) {
+	if (goods_item[i] == '') {
 		goods_btn.disabled = false;
-		
-	} 
-	
+		console.log(typeof(goods_item[i].value));
+		break;	
+	}
 }
-btnEnabled(btnDisabled);
+
+
 
 goods_btn.addEventListener('click', () => {
 
 	let i = 0;
 				do {
+
 					let a = goods_item[i].value;
 					
 					if ((typeof(a))  === 'string' && (typeof(a))  != null  && a.length < 50) {
@@ -135,15 +141,12 @@ employers_btn.addEventListener('click', () => {
 
 						employers_value.textContent += mainList.employers[i] + ', ';
 
-					} /*else {
-						console.log('Вы ввели неправильное имя');
-						i--;
-				}*/
+					}
 			}
 
 });
 
-let k = true;
+/*let k = true;
 discountChek.addEventListener('click', () => {
 	if  (discountChek && k == true) {
 		k = !k;
@@ -156,7 +159,22 @@ discountChek.addEventListener('click', () => {
 	}
 	
 	
-});
+});*/
+
+discountChek.addEventListener('click', function () {
+	// console.log(discountChek.checked);
+	if (discountChek.checked == true) {
+		discount.style.backgroundColor = 'green';
+	} else discount.style.backgroundColor = 'red';
+})
+
+console.log(discountChek);
+
+
+
+
+
+
 
 
 
